@@ -1,0 +1,99 @@
+.back {
+  width: 100%;
+  height: 254rpx;
+  position: fixed;
+  top: 0;
+  z-index: -9999;
+}
+
+/* 左箭头 */
+.imgbox {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -9999;
+}
+.imgbox image {
+    width: 100%;
+}
+image {
+  display: block;
+}
+.probox {
+  background: #fff;
+  margin: 0rpx 30rpx;
+  padding: 20rpx 0;
+  border-radius: 8px;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.probox .proimg {
+    width: 230rpx;
+    height: 230rpx;
+    flex-shrink: 0;
+}
+.probox .proboxfoot {
+    padding: 0 30rpx;
+    width: 90%;
+}
+.probox .proboxfoot .p1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      font-size: 24rpx;
+}
+.probox .proboxfoot .div1 {
+      height: 1px;
+      width: 100%;
+      margin: 60rpx 0;
+      border-top: 1px solid #DEDEE1;
+}
+.probox .proboxfoot .proprice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+.probox .proboxfoot .proprice text {
+        font-size: 24rpx;
+        color: #E69888;
+}
+.probox .proboxfoot .proprice image {
+        width: 30rpx;
+        height: 30rpx;
+}
+.ptitle {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  justify-content: space-around;
+  margin: 0rpx 30rpx;
+  padding-top: 120rpx;
+  padding-bottom: 30rpx;
+  position: relative;
+}
+
+.ptitle text {
+  color:#2C5B33;
+}
+
+.ptitle text.active {
+  color:#EB6100;
+}
+::-webkit-scrollbar {
+        display: none;
+    }
+
+.bottomBar {
+  width: 60rpx;
+  height: 6rpx;
+  background-color: #EB6100;
+  position: absolute;
+  /* left: 17%; */
+  bottom: 5%;
+  transform: translateX(-50%);
+  transition: all 0.5s ease-in-out;
+}
+

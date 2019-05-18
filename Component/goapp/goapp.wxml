@@ -1,0 +1,12 @@
+<template name="goapp">
+<view  wx:if="{{goapp}}">
+<cover-view class="zezhao" bindtap='closegoapp'></cover-view>
+<cover-view class="dakai">
+<cover-view class="as">{{msgtitlle}}</cover-view>
+<cover-image src="https://images.yyoungvip.com/IMG/gongzhonghao.jpg" mode="widthFix" bindtap='saverushou'></cover-image>
+<cover-view class="go1">请关注攸妍公众号</cover-view>
+<!-- <cover-view class="go1">，下载攸妍App后，在App上进行提现</cover-view> -->
+<cover-view class="go2">下载攸妍App后，在App上进行提现</cover-view>
+</cover-view>
+</view>
+</template>

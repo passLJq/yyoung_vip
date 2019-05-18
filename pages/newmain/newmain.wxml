@@ -1,0 +1,154 @@
+<!--pages/newmain/newmain.wxml-->
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+
+<view class="topbox">
+  <view class="top">
+    <view class="topli" wx:for="{{clasdata}}" bindtap='qiemain' data-index="{{index}}" style="{{index==headactive?'color:#427161':''}}">{{item.name}}</view>
+    <view class="cloroline" style='left:{{activeline}}'>
+      <view class="colorxian"></view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{classid=='00'}}">
+  <view style="padding:0 30rpx;margin-top:90rpx">
+    <view>
+      <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" indicator-active-color='#fff' style="{{boxheight?'height:'+boxheight+'px':''}}" class="heightbox">
+        <block wx:for="{{urllist.AdsList}}">
+          <swiper-item bindtap='golink' data-link="{{item.LinkContent}}">
+          <!-- 跳转小程序 -->
+            <navigator target='miniProgram' hover-class="none" app-id="wxe6bf55e98b556e41" path="pages/index/index" wx:if="{{item.LinkContent.ref=='groupbuylist'}}">
+            <image src="{{item.Source}}" class="slide-image" mode="widthFix" id="id{{index}}" bindload='boxheight' />
+            </navigator>
+            <navigator target='miniProgram' hover-class="none" app-id="wxe6bf55e98b556e41" path="pages/lndiana/lndiana" wx:elif="{{item.LinkContent.ref=='duobao'}}">
+                        <image src="{{item.Source}}" class="slide-image" mode="widthFix" id="id{{index}}" bindload='boxheight' />
+            </navigator>
+            <!-- 普通的 -->
+            <image src="{{item.Source}}" class="slide-image" mode="widthFix" id="id{{index}}" bindload='boxheight' wx:else/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="navbox">
+      <view class="navli" wx:for="{{data.navimgdata}}">
+        <navigator target='miniProgram' hover-class="none" app-id="wxe6bf55e98b556e41" path="pages/index/index" wx:if="{{item.content.ref=='groupbuylist'}}">
+          <image src="{{item.imgUrl}}" class="navimg" />
+          <view>{{data.navtitle[index]}}</view>
+        </navigator>
+        <navigator target='miniProgram' hover-class="none" app-id="wxe6bf55e98b556e41" path="pages/lndiana/lndiana" wx:elif="{{item.content.ref=='duobao'}}">
+          <image src="{{item.imgUrl}}" class="navimg" />
+          <view>{{data.navtitle[index]}}</view>
+        </navigator>
+        <button open-type='contact' wx:elif="{{item.content.ref=='shop-service'}}">
+          <image src="{{item.imgUrl}}" class="navimg" />
+          <view>{{data.navtitle[index]}}</view>
+        </button>
+        <navigator hover-class="none" wx:else bindtap='golink' data-link="{{item.content}}">
+          <image src="{{item.imgUrl}}" class="navimg" />
+          <view>{{data.navtitle[index]}}</view>
+        </navigator>
+      </view>
+    </view>
+
+    <!-- <view class="dianzhu">
+      <image src="{{data.vipbackground[0].imgUrl}}" mode="widthFix"></image>
+      <view class="dian1">
+        <view>
+          <view>累计店主</view>
+          <view>
+            <text>{{allvipnum}}</text>名</view>
+        </view>
+      </view>
+      <view class="dian2">
+        <view>
+          <view>共赚取</view>
+          <view>
+            <text>{{zuannum}}</text>元</view>
+        </view>
+      </view>
+    </view> -->
+
+    <view class="advbox">
+      <view class="adv1" bindtap='golink' data-link="{{data.smalladvimg[0].content}}">
+        <image src="{{data.smalladvimg?data.smalladvimg[0].imgUrl:''}}" alt="" mode="widthFix"></image>
+      </view>
+      <view class="adv2" bindtap='gotimebuy'>
+        <image src="{{data.smalladvimg?data.smalladvimg[1].imgUrl:''}}" alt="" mode="widthFix"></image>
+        <!-- <view class="timeout">
+          <view class='timenumber'>{{timeCount.hour}}</view>
+          <view class="timedian">:</view>
+          <view class='timenumber'>{{timeCount.minute}}</view>
+          <view class="timedian">:</view>
+          <view class='timenumber'>{{timeCount.second}}</view>
+        </view> -->
+        <!-- <view class="timetext">{{timeCount.timetext}}</view> -->
+        <!-- <image wx:if="{{rushbuyImg}}" src="{{rushbuyImg}}" alt="" class="pro"></image>
+        <image wx:else src="../../image/rushbuyimg.png" alt="" class="pro"></image> -->
+      </view>
+    </view>
+
+    <!-- 高佣区 -->
+    <!-- <view class="gaoimg" wx:if="{{data.commissionshow}}">
+      <image src="{{item.imgUrl}}" alt="" wx:for="{{ data.commissionimg}}" mode="widthFix" bindtap="gogaoyong" data-idx="{{index}}"></image>
+    </view> -->
+
+    <view class="bigtitle">
+      <view>本月新品</view>
+    </view>
+
+    <view>
+      <swiper style="{{newheight?'height:'+newheight+'px':''}}">
+        <block wx:for="{{data.bigcardsdata}}">
+          <swiper-item class="newbox" bindtap='gostr' data-type="{{item.type}}" data-title="{{item.title}}" data-ref="{{item.ref}}">
+            <image src="{{item.backgrounds}}" class="slide-image" mode="widthFix" id="new{{index}}" bindload='newheight' style='box-shadow:0px 1px 10px 0px rgba(216,216,216,0.2);' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="bigtitle">
+      <view>优惠套装</view>
+    </view>
+
+    <view style='margin-bottom:20rpx;'>
+      <swiper style="{{comheight?'height:'+comheight+'px':''}}" display-multiple-items="2">
+        <block wx:for="{{data.groupdata}}">
+          <swiper-item bindtap='gostr' data-type="{{item.type}}" data-title="{{item.title}}" data-ref="{{item.ref}}">
+            <image src="{{item.backgrounds}}" class="slide-image" mode="widthFix" id="com{{index}}" bindload='comheight' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view style='width:100%;margin-bottom:30rpx;' wx:for="{{data.classiftimgdata}}" wx:if="{{data.louhide[index]}}">
+      <image src='{{item.imgUrl}}' mode="widthFix" class="topmain" bindtap='golink' data-link="{{item.content}}"></image>
+      <swiper display-multiple-items="3" style='height:380rpx;margin-top:-40rpx'>
+        <block wx:for="{{classallprodata[index]}}" wx:for-index="idx" wx:for-item="image">
+          <swiper-item bindtap='gopros' data-pro="{{image.pid}}">
+            <image src="{{image.src}}" class="slide-image" mode="widthFix" />
+            <view style='padding: 0 10rpx;'>
+              <view class="protitle">{{image.title}}</view>
+              <view class="proprice">
+                <view class="projiage">¥{{filters.toFix(image.salePrice, 2)}}
+                  <!-- <text style="color: #E69888;"> / 赚￥{{filters.toFix(image.commPrice, 2)}}</text> -->
+                  <text>¥{{filters.toFix(image.marketPrice, 0)}}</text>
+                </view>
+                <image src='../../image/buy_icon@3x.png'></image>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>
+
+<view wx:else>
+  <main-pingdao classid="{{classid}}" currpage="{{currpage}}"></main-pingdao>
+</view>
+
+
+
+
+<!-- //底部导航放在最后面 -->
+<foot-nav clickindex='1' bind:goFrist="goFristTab"></foot-nav>

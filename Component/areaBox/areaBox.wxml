@@ -1,0 +1,27 @@
+<!-- 因为小程序不能用数字做id开头，包括#，所以用O代替# -->
+
+<view class="areaApp" style="{{showArea ? 'top: 0' : ''}}">
+  <view class="area" style="height: 100%;">
+    <view class="tittle">
+      <view class="backa" bindtap="close">
+        <image src="../../image/icon-back.png" alt=""></image>
+      </view>
+      <text>选择地区</text>
+      <view style="width:10px;height:10px;"></view>
+    </view>
+    <scroll-view scroll-y style="height:{{height}}px;" scroll-into-view="{{nav}}" class="areBox">
+      <view class="group scroll-view-item" wx:for="{{areaArr}}" id="{{areaItem.Key}}" wx:for-item="areaItem" wx:for-index="idx">
+        <view class="ttit">{{areaItem.Key == 'O' ? '#' : areaItem.Key}}</view>
+        <view class="itemm" wx:for="{{areaItem.Data}}" bindtap="ontouchs" data-areacode="{{item.Areacode}}">
+          <text>{{item.Name}}</text>
+          <text>{{item.Areacode}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="px" hidden="{{!showPx}}">
+    <view>
+      <view class="li" wx:for="{{areaArr}}" data-key="{{item.Key}}" bindtap="goGroup">{{item.Key == 'O' ? '#' : item.Key}}</view>
+    </view>
+  </view>
+</view>

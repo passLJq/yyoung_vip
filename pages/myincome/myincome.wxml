@@ -1,0 +1,51 @@
+<!--pages/myincome/myincome.wxml-->
+<!-- <import src="../../Component/goapp/goapp.wxml" /> -->
+<view class="fxbox">
+  <!-- 头部 -->
+  <view class='fx1'>总收益</view>
+  <view class='fx2'>
+    {{mengdata.Data.totalCommision}}</view>
+  <view class='fx3'>上月收益{{mengdata.Data.lastMonthCommision}}</view>
+  <view class='item'>
+    <view class="itemli">
+      <text class="fx4">{{mengdata.Data.todaycommision}}元</text>
+      <view class='fx6'>今日收益</view>
+    </view>
+    <view class="itemli">
+      <text class="fx4">{{mengdata.Data.weekCommision}}元</text>
+      <view class='fx6'>本周收益</view>
+    </view>
+    <view class="itemli">
+      <text class="fx4">{{mengdata.Data.monthCommision}}元</text>
+      <view class='fx6'>本月收益</view>
+    </view>
+  </view>
+</view>
+<!-- 柱状图 -->
+<view class="fx7">
+  <text>七日收益柱状图</text>
+</view>
+<view class="container">
+  <canvas id="mychart-dom-bar" canvas-id="mychart-bar" class="ase"></canvas>
+</view>
+<view class="fx8" style="display:flex;justify-content:space-between;align-items:center;">
+  <text>本月累计分红</text>
+	<text>￥{{mengdata.Data.monthCommision}}</text>
+</view>
+
+<view wx:for="{{mingxi}}" wx:for-index="idx" wx:for-item="item">
+  <view class="fx9">
+    <text>{{item.year}}</text>
+  </view>
+  <view class='mingxi' wx:for="{{mingxi[idx].monthdata}}" wx:for-index="index" wx:for-item="its">
+  <view class="items" bindtap='opengoapp' data-year="{{its.month}}">
+      <text class="fx12">{{its.month}}</text>
+      <view class="fx11">
+        <text>¥ {{its.commision}}</text>
+        <i class="right-arrow"></i>
+      </view>
+  </view>
+</view>
+</view>
+
+  <!-- <template is="goapp" data="{{goapp,msgtitlle}}" /> -->

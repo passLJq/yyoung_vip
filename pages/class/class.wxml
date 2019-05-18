@@ -1,0 +1,95 @@
+<!--pages/class/class.wxml-->
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<import src="../../Component/sharebox/sharebox.wxml" />
+<import src="../../Component/goTop/goTop.wxml" />
+
+<view style='background:#fff;padding:20rpx 0'>
+  <view class='suo' bindtap='gosearch'>
+    <i class='iconfont icon-sousuo'></i>
+    <text>搜索商品</text>
+  </view>
+</view>
+
+<view class='b' wx:if="{{swiperMsg.length > 0}}">
+  <swiper autoplay="false" interval="3000" duration="500" bindchange='chang'>
+    <swiper-item wx:for="{{swiperMsg}}" wx:key="">
+      <image src="{{item.Source || 'https://images.rushouvip.net/_A/201812/170335837877.png'}}" bindtap='golink' data-link="{{item.LinkContent}}"/>
+    </swiper-item>
+  </swiper>
+  <view class="swibtn">
+    <view wx:for="{{swiperMsg}}" class="swibtnli {{index==scrollindex?'swactive':''}} {{index}}"></view>
+  </view>
+</view>
+
+<view class='fenul'>
+  <view class="fenliBox" wx:for="{{classdata}}" wx:key="" wx:if="{{classdata.length > 8? index < 5: true}}"
+   bindtap='toSecondClass' data-classid="{{item.cla.classid}}" style="{{index>2?'border-top:2rpx solid #efefef;':''}}">
+    <view class="fenliBox_content" style="{{index%3==0?'border:none;':''}}">
+      <image src="{{item.cla.image || '../../image/bkg_cover.jpg'}}"></image>
+      <text>{{item.cla.name}}</text>
+    </view>
+  </view>
+  <view class="fenliBox" style="border-top:2rpx solid #efefef;" bindtap='golist' data-classid="more" wx:if="{{classdata.length > 4}}">
+    <view class="fenliBox_content">
+      <image src="../../image/moclass.png"></image>
+      <text>更多好货</text>
+    </view>
+  </view>
+</view>
+<!-- 品牌 bindtap='golists'-->
+<view>
+  <view class="seitem magebox" style="background:#fff;">
+    <image src="{{smaMsg[0].imgUrl}}" class="mae1" bindtap='golink' data-link="{{smaMsg[0].content}}"></image>
+    <view class="mae2">
+      <image src="{{smaMsg[1].imgUrl}}" class="mae3" bindtap='golink' data-link="{{smaMsg[1].content}}"></image>
+    <image src="{{smaMsg[2].imgUrl}}" class="mae6" bindtap='golink' data-link="{{smaMsg[2].content}}"></image>
+    </view>
+  </view>
+
+  <!-- <view class="seitem magebox2">
+        <image src="https://images.yyoungvip.com/WebApp/invite/cls/p4.jpg" class="mae4" bindtap='golists' data-bid="180720101426671233" data-value="兰芝"></image>
+
+    <image src="https://images.yyoungvip.com/WebApp/invite/cls/p5.jpg" class="mae5" bindtap='golists' data-bid="180723154159484190" data-value="衍生"></image>
+  </view> -->
+</view>
+
+<view style="width:100%;padding:0 30rpx;box-sizing:border-box;display:flex;">
+  <!-- <view class="gaoyong">
+    <view class="titlee">高佣区</view>
+    <view class="gaoyongcont">
+      <image wx:for="{{comMsg}}" src="{{item.imgUrl}}" bindtap="gogaoyong" data-idx="{{index}}"></image>
+    </view>
+  </view> -->
+  <image style="width:33.333%" mode="widthFix" wx:for="{{comMsg}}" src="{{item.imgUrl}}" bindtap="gogaoyong" data-idx="{{index}}"></image>
+</view>
+<view class="youxuanList">
+  <view class="tittt">
+    <view style="background:#F5AC9E;height:2rpx;width:100rpx;"></view>
+    <text style="color:#F5AC9E;font-size:34rpx;margin: 0 10rpx;">优选推荐</text>
+    <view style="background:#F5AC9E;height:2rpx;width:100rpx;"></view>
+  </view>
+
+  <view class="youxuanItem" wx:for="{{listdata}}" wx:key='pid' data-pid="{{item.pid}}" bindtap="goDetail">
+    <view class="itemUp">
+      <image src="{{item.pic}}" wx:if="{{item.stocks!=0}}"></image>
+      <image src="../../image/shouwan.png" wx:if="{{item.stocks==0}}"></image>
+      <view class="conttt">
+        <text>{{item.name}}</text>
+        <view style="display:flex;align-items:baseline;"><text style="font-size:36rpx;color:#E69888;">￥</text><text class="tt1">{{filters.toFix(item.salePrice,2)}}</text></view>
+      </view>
+    </view>
+    <view class="itemDown">
+      <view style="display:flex;">
+        <block wx:for="{{item.visitorlist}}" wx:for-index="idx" wx:for-item="imges" wx:if="{{item.visitorlist.length>0&&idx<6}}">
+          <image src="../../image/man.jpg" wx:if="{{imges.userhead==''}}"></image>
+          <image src="{{imges.userhead}}" wx:else></image>
+        </block>
+      </view>
+      <text style="color:#666464;font-size:28rpx;">{{item.visitorcount}}人浏览过</text>
+    </view>
+  </view>
+</view>
+
+<go_openyshop isfreeze="{{isfreeze}}"></go_openyshop>
+<template is="sharebox" data="{{showshare,haibao:haibao,zuan:zuan}}" />
+<template is="goTop" data="{{showtop}}" />

@@ -1,0 +1,48 @@
+
+<!--pages/other/voucher_center/voucher_center.wxml-->
+<wxs module="filters" src="../../../Component/filters/filters.wxs"></wxs>
+<view class="coumain" wx:if="{{unGet.length}}">
+  <view class="couppitem" wx:for="{{unGet}}" bindtap="goCanUse" data-index="{{index}}" data-type="1">
+    <view class="col">
+      <text>{{item.israandom ? '??' : item.facevalue}}</text>
+      <text>元</text>
+    </view>
+    <view class="mindo">
+      <text style="color:#878585;font-size:28rpx;margin-bottom:15rpx;">满{{item.uselimit}}元可用</text>
+      <text style="color:#878585;font-size:24rpx;margin-bottom:38rpx;">有效期至：{{item.time}}</text>
+      <text style="color:#BAB7B7;font-size:24rpx;">{{item.israandom ? '随机券' : item.couponalias}}</text>
+    </view>
+    <view class="coubtn" data-couponid="{{item.couponid}}" catchtap="checkLogin" data-index="{{index}}">立即领取</view>
+  </view>
+</view>
+<view class="main" style="margin-top: 20rpx;">
+      <!-- 没有数据时 -->
+    <view class="nodata" wx:if="{{!unGet.length}}">
+      <image src="../../../image/couponNoData1.png"></image>
+      <text class="p">很遗憾</text>        
+      <text>暂时没有可领的优惠券喔</text>
+    </view>
+    
+  <!-- main end -->
+  </view>
+
+  <view class="hasget">
+    <view class="hasItem" wx:for="{{hasGet}}"  bindtap="goCanUse" data-index="{{index}}">
+      <view class="ll">
+        <view class="upp">
+          <view class="left">
+            <text>{{item.facevalue}}</text>
+            <text>元</text>
+          </view>
+          <view class="right">
+            <text>满{{item.uselimit}}元可用</text>
+            <text>有效期至: {{item.time}}</text>
+          </view>
+        </view>
+        <text class="doww">{{item.israandom ? '随机券' : issitem.couponalias}}</text>
+      </view>
+      <view class="rr">
+        <image src="../../../image/hasget.png"></image>
+      </view>
+    </view>
+  </view>

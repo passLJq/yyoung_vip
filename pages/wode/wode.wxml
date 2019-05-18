@@ -1,0 +1,153 @@
+<!--pages/wode/wode.wxml-->
+<import src="../../Component/goapp/goapp.wxml" />
+<view>
+  <!-- 提示在别人店铺  -->
+  <back-my-shop ruid="{{ruid}}" uid="{{uid}}" fxshopid="{{fxshopid}}"></back-my-shop>
+  <!--顶部个人信息  -->
+  <view class="top_box_container">
+    <view class="mycenter_msg_container">
+      <view class="headdtop" style="margin-bottom: {{userMsg.isintern && (userMsg.isintern != '0'? '46rpx': '0')}}">
+				<!-- <image class="imgg" mode='widthFix' src="https://images.yyoungvip.com/IMG/memberBack.jpg"></image> -->
+        <view class="mycenter_msg_container_top flex overflow_boxsizing">
+          <view class="user_pic_container overflow_boxsizing" style="{{!uid? 'position: relative;': ''}}" bindtap='toLogin'>
+            <image src="{{userMsg.pic || '/image/man.jpg'}}" class="user_pic"></image>
+            <text style="position: absolute; top: 50%; left: 60%; transform: translate(-50%, -50%); color: #2C5B33; font-size: 34rpx; width: 100%; text-align:center;" wx:if="{{!uid}}">未登录</text>
+          </view>
+          <view class="flex_1 user_msg_container flex flex_v flex_ju flex_pack_justify_around" wx:if="{{uid}}">
+            <view>
+              <text class="font_18 user_name" style="color:#2C5B33;">{{userMsg.name && userMsg.name || ""}}</text>
+              <view class="font_10 user_shop_type" style="display: inline-block;" wx:if="{{!ruid && userMsg.isintern == '1'}}">
+                <text class="iconfont icon-star icon_stars"></text>
+                <text>{{userMsg.isintern && (userMsg.isintern == "0"? '正式店主': userMsg.isintern == "1"?'实习店主': '')}}</text>
+              </view>
+            </view>
+            <view class="font_14" wx:if="{{!ruid && userMsg.isintern != '2' && userMsg.code && fxshopid}}">
+              <text style="color:#2C5B33;">邀请码: </text>
+              <text style="color:#2C5B33;">{{userMsg.code}}</text>
+            </view>
+            <view class="font_12 user_shop_level" style="margin-top:20rpx;" wx:if="{{!ruid && userMsg.isintern != '2'}}">
+              <view wx:if="{{userMsg.shoplevelname && userMsg.shoptitlename}}">
+                <text style="color:#666464;">{{userMsg.shoplevelname}}</text>
+                <text style="color:#666464;"> | </text>
+                <text style="color:#666464;">{{userMsg.shoptitlename}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- //关注公众号 -->
+        <view class="guanzhu123" bindtap='opengoapp' >
+          <text>点击关注<text class="jiachu">“攸妍”</text>公众号，实时接收订单和收益消息</text>
+        </view>
+      </view>
+     
+    </view>
+  </view>
+ 
+
+  <!-- 个人中心 -->
+  <view class="slides_container" style="padding: 15rpx 30rpx;">
+    <!-- 我的订单 -->
+    <view class="order_container overflow_sizing">
+      <view class="clear title_orders" bindtap="toOrder">
+        <text class="font_18 fl" style="color:#427161;">我的订单</text>
+        <text class="font_14 color_999 fr more_icon">查看全部</text>
+      </view>
+      <view class="flex orders_type_container color_333 font_12">
+        <view class="flex_1" bindtap='toOrder' data-type="1">
+          <view style="position: relative;">
+            <image src="/image/daifukuan.png"></image>
+            <text class="translateX_icon" wx:if="{{orderState.unpay > 0}}">{{orderState.unpay}}</text>
+          </view>
+          <text>待付款</text>
+
+        </view>
+        <view class="flex_1" bindtap='toOrder' data-type="2">
+          <view style="position: relative;">
+            <image src="/image/daifahuo.png"></image>
+            <text class="translateX_icon" wx:if="{{orderState.tobesend > 0}}">{{orderState.tobesend}}</text>
+          </view>
+          <text>待发货</text>
+        </view>
+        <view class="flex_1" bindtap='toOrder' data-type="3">
+          <view style="position: relative;">
+            <image src="/image/daishouhuo.png"></image>
+            <text class="translateX_icon" wx:if="{{orderState.unreceipt > 0}}">{{orderState.unreceipt}}</text>
+          </view>
+          <text>待收货</text>
+        </view>
+        <view class="flex_1" bindtap='toAfterSale'>
+          <view>
+            <image src="/image/shouhou.png"></image>
+          </view>
+          <text>售后</text>
+        </view>
+      </view>
+    </view>
+    <!-- 邀请店主&地址管理&联系电话&加店主群  -->
+    <view class="order_container overflow_sizing" style="margin-bottom: 56rpx;">
+      <view class="clear title_orders" bindtap='gomypack' wx:if="{{uid}}">
+        <text class="font_14 color_646 fl">我的钱包</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </view>
+      <view class="clear title_orders bt_2" bindtap='toPages' wx:if="{{uid}}" data-name="voucher_center">
+        <text class="font_14 color_646 fl">领券中心</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </view>
+      <view class="clear title_orders bt_2" bindtap='toPages' wx:if="{{uid}}" data-name="mycoupon">
+        <text class="font_14 color_646 fl">我的优惠券</text>
+        <text class="font_12 color_999 fr more_icon">{{hideCouponPromptMsg? '您有即将过期的优惠券': ''}}</text>
+      </view>
+      <view class="clear title_orders bt_2" bindtap='toAddress'>
+        <text class="font_14 color_646 fl">地址管理</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </view>
+      <view class="clear title_orders bt_2" data-reply-phone="4008206527" bindtap="phoneCall">
+        <text class="font_14 color_646 fl">联系电话</text>
+        <text class="font_12 color_999 fr more_icon">4008206527</text>
+      </view>
+      <view class="clear title_orders bt_2" wx:if="{{uid}}" bindtap='gowechat'>
+        <text class="font_14 color_646 fl">微信解绑</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </view>
+      <view class="clear title_orders bt_2" wx:if="{{uid}}" bindtap='gomessagelist'>
+        <text class="font_14 color_646 fl">消息中心</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </view>
+			<button open-type='contact' class="clear title_orders" wx:if="{{uid}}" style="border-top:2rpx solid #DEDEE1;width:100%;">
+        <text class="font_14 fl" style="color:#666464;">在线客服</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </button>
+			<!-- <view class="clear title_orders" bindtap='gogoods' wx:if="{{uid}}" style="border-top:2rpx solid #DEDEE1;width:100%;">
+        <text class="font_14 fl" style="color:#666464;">商品管理</text>
+        <text class="font_12 color_999 fr more_icon"></text>
+      </view> -->
+      
+      <view class="clear title_orders" bindtap='gohuodong' wx:if="{{uid&&showqiandao}}" style="border-top:2rpx solid #DEDEE1;">
+        <text class="font_14 fl" style="color:#666464;">任务中心</text>
+        <text class="font_12 color_999 fr more_icon">百万现金每日签到即可领取</text>
+      </view>
+      <!-- <view class="clear title_orders" bindtap="clearup">
+        <text class="font_14 color_333 fl">清理缓存</text>
+      </view> -->
+      <!--访问的店铺  -->
+      <!-- <view class="title_orders flex flex_align_center flex_pack_justify_between" style="margin-top: 20rpx;" wx:if="{{uid}}" bindtap='govisirtor'>
+        <text class="font_14 color_333">访问过的店铺</text>
+        <view class="flex flex_align_center">
+          <view class="flex flex_align_center">
+            <view wx:for="{{userMsg.visitorlist}}" class="flex flex_align_center" wx:if="{{index < 3}}">
+              <image src="{{item.userhead || '/image/man.jpg'}}" class="visitor_image visitor_image_{{index}}" style="z-index:{{index}}"></image>
+            </view>
+          </view>
+          <view style="width: 60rpx; height: 100%; line-height: 100%;justify-content: flex-end;" class="font_12 color_999 more_icon flex flex_align_center"></view>
+        </view>
+      </view> -->
+    </view>
+  </view>
+
+</view>
+
+<template is="goapp" data="{{goapp,msgtitlle}}" />
+
+
+<!-- //底部导航放在最后面 -->
+<foot-nav clickindex='3'></foot-nav>

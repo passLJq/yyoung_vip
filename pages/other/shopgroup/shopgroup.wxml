@@ -1,0 +1,9 @@
+<image class="back" src="../../../image/kefuback.png"></image>
+<!-- https://images.yyoungvip.com/WebApp/WebApps/Image/rushou.jpg -->
+
+<view class="erweima">
+  <image src="../../../image/bkg_cover.jpg"></image>
+  <text style="color:#215645;font-size:30rpx;margin-top:34rpx;">攸妍官方客服微信号</text>
+  <view style="width:77rpx; height:2rpx;background:#2C5B33;margin:50rpx 0;"></view>
+  <text style="color:#215645;font-size:30rpx;">www.you-yan.cn</text>
+</view>

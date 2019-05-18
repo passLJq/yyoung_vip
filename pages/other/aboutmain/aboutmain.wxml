@@ -1,0 +1,4 @@
+<!--pages/other/aboutmain/aboutmain.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+     <template is="wxParse" data="{{wxParseData:description.nodes}}" />
+

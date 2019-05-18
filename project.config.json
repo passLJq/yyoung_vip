@@ -1,0 +1,126 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.2",
+	"appid": "wx8f61d32d15022256",
+	"projectname": "yanvip",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": 0,
+					"name": "商品",
+					"pathName": "pages/productdetail/productdetail",
+					"query": "pid=181227220720646305&ruid=190121092021137722",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "创业礼包1",
+					"pathName": "pages/jiedong_pro/jiedong_pro",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "解冻",
+					"pathName": "pages/order/order",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "解冻",
+					"pathName": "pages/productdetail/productdetail",
+					"query": "ruid=181113111733078681&pid=181112180544116740"
+				},
+				{
+					"id": 4,
+					"name": "客服",
+					"pathName": "pages/other/shopgroup/shopgroup",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "wangye",
+					"pathName": "pages/ordercomfirm/ordercomfirm",
+					"query": "pid=181204201725423442&way=buynow&buyCounts=1&skuprice=300.00&companyid=170823105729085905"
+				},
+				{
+					"id": 6,
+					"name": "class",
+					"pathName": "pages/class/class",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "高佣列表",
+					"pathName": "pages/gaoyonglist/gaoyonglist",
+					"query": "idx=1"
+				},
+				{
+					"id": 8,
+					"name": "创业礼包",
+					"pathName": "pages/other/password/password",
+					"query": "type=2"
+				},
+				{
+					"id": 9,
+					"name": "123",
+					"pathName": "pages/newmain/newmain",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "123",
+					"pathName": "pages/other/password/password",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/wode/wode",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,25 @@
+/* pages/other/shopgroup/shopgroup.wxss */
+@import "/common/font-awesome.wxss";
+page{overflow: hidden;background-color: #F7C3B3}
+.back {
+  width: 750rpx;
+  height: 1200rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.erweima {
+  width: 285rpx;
+  position: absolute;
+  left: 50%;
+  top: 400rpx;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.erweima image {
+  width: 285rpx;
+  height: 285rpx;
+}

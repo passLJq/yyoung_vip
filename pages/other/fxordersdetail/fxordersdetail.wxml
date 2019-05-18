@@ -1,0 +1,40 @@
+<!--pages/other/fxordersdetail/fxordersdetail.wxml-->
+<view>
+  <view class="top_container flex flex_pack_center flex_align_center flex_v">
+    <view style="color: #2C5B33; height: 84rpx; line-height: 84rpx;font-family:PingFangSC-Semibold;font-size:56rpx">
+      <text class="font-weight">¥{{listMsg.commision || "0.00"}}</text>
+    </view>
+    <view class="font_14 color_333">
+      <text>可提现金额（元）</text>
+    </view>
+  </view>
+
+  <view class="font_13 color_999 box_container">
+    <view class="itemsd">
+      <text>订单编号：</text>
+      <text>{{listMsg.orderid}}</text>
+    </view>
+    <view class="itemsd">
+      <text>订单类型：</text>
+      <text>{{listMsg.ordertype=="劲爆拼团"?listMsg.ordertype+'':listMsg.ordertype}}</text>
+    </view>
+    <view class="itemsd">
+      <text>订单状态：</text>
+      <text>{{listMsg.comtype}}</text>
+    </view>
+    <view class="itemsd">
+      <text>下单时间：</text>
+      <text>{{listMsg.createtime}}</text>
+    </view>
+    <view class="itemsd">
+      <text>订单金额：</text>
+      <text>￥{{listMsg.amount || "0.00"}}</text>
+    </view>
+    <view class="itemsd">
+      <text>客户昵称：</text>
+      <text>{{listMsg.username}}</text>
+    </view>
+  </view>
+
+
+</view>

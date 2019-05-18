@@ -1,0 +1,334 @@
+/* pages/wode/wode.wxss */
+@import "/common/font-awesome.wxss";
+@import "../../Component/go_openyshop/go_openyshop.wxss";
+@import "../../Component/goapp/goapp.wxss";
+
+page {
+  background-color: rgb(245,245,245);
+}
+
+page>view>view {
+  /* background-color: #fff; */
+}
+
+image {
+  display: inline-block;
+}
+
+.top_box_container {
+  background-color: #fff;
+  /* padding: 26rpx 24rpx 46rpx; */
+  margin-top: 10rpx;
+}
+
+.mycenter_msg_container {
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0px 1px 10px 0px rgba(216, 216, 216, 0.5);
+}
+
+.mycenter_msg_container_top {
+  width: 100%;
+  height: 110px;
+  /* background:linear-gradient(49deg,rgba(247,195,179,1),rgba(255,234,224,1)); */
+	/* background-image: url('https://images.yyoungvip.com/IMG/memberBack.jpg');
+	background-repeat: no-repeat;
+	background-size: cover; */
+  padding: 38rpx 0;
+  color: #fff;
+	z-index: 99;
+}
+
+.icon_stars {
+  color: #ffcc01;
+  font-size: 20rpx;
+  position: relative;
+  top: -2rpx;
+  margin-right: 6rpx;
+}
+
+.user_pic_container {
+  width: 168rpx;
+  height: 144rpx;
+  padding-left: 28rpx;
+}
+
+.user_pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user_msg_container {
+  padding-left: 32rpx;
+  box-sizing: border-box;
+}
+
+.user_shop_type {
+  margin-left: 16rpx;
+  padding: 2rpx 8rpx;
+  background: rgba(188, 143, 78, 1);
+  border-radius: 16rpx;
+  color: #ddc7a6;
+  padding-right: 16rpx;
+}
+
+.user_shop_level>view {
+  display: inline-block;
+  padding: 6rpx 24rpx;
+  background: #fff;
+  /* border-radius: 16rpx; */
+  color: #ddc7a6;
+}
+
+.mycenter_msg_top {
+  margin: 0 32rpx;
+  padding: 0 20rpx;
+  border-bottom: 2rpx solid #f6f6fa;
+}
+
+.center_top_container {
+  text-align: left;
+}
+
+.center_top_container>icon {
+  vertical-align: middle;
+  margin-right: 24rpx;
+}
+
+.center_top_container>text text {
+  color: #ff442f;
+}
+
+.order_promsg_1 {
+  padding: 36rpx 0 32rpx;
+  text-align: left;
+}
+
+.order_promsg_2 {
+  padding-bottom: 32rpx;
+  text-align: left;
+}
+
+.mycenter_msg_bottom {
+  padding: 22rpx 32rpx 0;
+}
+
+.mycenter_msg_bottom>view {
+  padding-bottom: 34rpx;
+}
+
+.time_d, .time_h, .time_m, .time_s {
+  display: inline-block;
+  text-align: center;
+  line-height: 58rpx;
+  width: 58rpx;
+  height: 58rpx;
+  background: rgba(205, 168, 110, 1);
+  border-radius: 16rpx;
+  color: #fff;
+}
+
+.order_container {
+  background-color: transparent;
+  border-radius:8rpx;
+  border-bottom: 4rpx solid #f6f6fa;
+  margin-bottom: 10rpx;
+}
+
+.order_container>view {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.order_container>.orders_type_container {
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+  text-align: center;
+}
+
+.orders_type_container image {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 auto;
+  margin-bottom: 10rpx;
+}
+
+.title_orders {
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #fff;
+    border-radius: 0;
+}
+
+.shopMan_Vip {
+  height: 88rpx;
+  line-height: 88rpx;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+
+.shopMan_Vip>view {
+  border-right: 2rpx solid #f6f6fa;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.shopMan_Vip>view:nth-last-child(1) {
+  border: 0;
+}
+
+.mysuccess_order_container>view {
+  padding: 0 30rpx;
+  color: #333;
+  font-size: 34rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.mysuccess_order_container>view:nth-child(1),
+.mysuccess_order_content>view:nth-child(1) {
+  border-right: 4rpx solid #D3D3D4;
+}
+
+.mysuccess_order_content>view {
+  padding: 0 30rpx;
+  color: #333;
+  font-size: 34rpx;
+  height: 118rpx;
+  line-height: 118rpx;
+}
+
+.team_container {
+  height: 128rpx;
+  padding: 0 30rpx;
+  width: 100%;
+}
+
+.team_btn_share {
+  width: 250rpx;
+  height: 58rpx;
+  background: rgba(205, 168, 110, 1);
+  border-radius: 36rpx;
+  text-align: center;
+  line-height: 58rpx;
+}
+
+.visitor_image {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  position: relative;
+}
+
+.visitor_image_0 {
+  left: 40rpx;
+}
+
+.visitor_image_1 {
+  left: 20rpx;
+}
+
+/* 提示在他人店铺 */
+
+.prompt_title_container {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #d7d7d7;
+  padding: 10rpx 20rpx;
+}
+
+.prompt_title_container>text {
+  padding: 10rpx 20rpx;
+}
+
+.prompt_btn {
+  background-color: #f00;
+}
+
+.guanzhu123 {
+  color: #427161;
+  font-size: 24rpx;
+  padding: 30rpx 0;
+  text-align: center;
+  background-color:#fff;
+	z-index: 99;
+}
+
+.jiachu {
+  font-weight: 700;
+  font-size: 28rpx;
+}
+
+/* NAV */
+
+.nav_container {
+  position: relative;
+  width: 100%;
+  height: 88rpx;
+  margin-top: 30rpx;
+  /* background-color: #fff; */
+}
+
+.nav_container .slider_list:nth-child(1) {
+  border-right: 2rpx solid #fcfcfd;
+}
+
+.slider_list {
+  width: 50%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #427161;
+}
+
+.line_red {
+  position: absolute;
+  top: 96%;
+  width: 140rpx;
+  height: 8rpx;
+  background: #FAA696;
+  border-radius: 4rpx;
+}
+
+.selected {
+  color: #FAA696;
+  /* font-size: 34rpx; */
+}
+
+/* slide列表 */
+
+.slides_container, .order_container {
+  background-color: transparent !important;
+}
+
+.slides_container>view {
+  background-color: #fff;
+}
+.color_646 {
+  color:#666464;
+}
+.bt_2 {
+  border-top: 2rpx solid #DEDEE1;
+}
+button::after {
+  border: none;
+}
+
+.headdtop {
+	border-radius:16rpx 16rpx 0 0;
+	position: relative;
+	background-image: url('https://images.yyoungvip.com/IMG/memberBack.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.headdtop .imgg {
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 100%;
+	z-index: 1
+}
